@@ -6,8 +6,8 @@
 
 <code><img width="5%" title="IntelliJ IDEA" src="images/IDEA-logo.svg"></code>
 <code><img width="5%" title="Java" src="images/java-logo.svg"></code>
-<code><img width="5%" title="Selenide" src="images/selenide-logo.svg"></code>
 <code><img width="5%" title="Selenoid" src="images/selenoid-logo.svg"></code>
+<code><img width="5%" title="Selenide" src="images/selenide-logo.svg"></code>
 <code><img width="5%" title="Gradle" src="images/gradle-logo.svg "></code>
 <code><img width="5%" title="JUnit5" src="images/junit5-logo.svg"></code>
 <code><img width="5%" title="Allure Report" src="images/allure-Report-logo.svg"></code>
@@ -18,7 +18,7 @@
 </p>
 
 
->*В данном проекте автотесты написаны на <code><strong>*Java*</strong></code> с использованием фреймворка <code><strong>*Selenide*</strong></code>.*
+>*В текущем проекте автотесты написаны на <code><strong>*Java*</strong></code> с использованием фреймворка <code><strong>*Selenide*</strong></code>.*
 >*Для сборки проекта используется <code><strong>*Gradle*</strong></code>.*
 >
 >*<code><strong>*JUnit 5*</strong></code> используется как фреймворк для модульного тестирования.*
