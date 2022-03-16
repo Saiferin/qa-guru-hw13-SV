@@ -7,8 +7,9 @@ repositories {
     mavenCentral()
 }
 
-def allureVersion = "2.17.2",
-    junitVersion = "5.8.2"
+def allureVersion = "2.14.0",
+    selenideVersion = "5.24.0",
+    junitVersion = "5.7.2"
 
 allure {
     report {
@@ -27,15 +28,21 @@ allure {
 
 dependencies {
     testImplementation(
-            "com.codeborne:selenide:6.2.1",
+            "org.aspectj:aspectjweaver:1.9.6",
+            "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "org.junit.jupiter:junit-jupiter:$junitVersion",
-            "com.github.javafaker:javafaker:1.0.2",
-            "org.aeonbits.owner:owner:1.0.4")
+            "io.rest-assured:rest-assured:4.3.1",
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
+            "org.aeonbits.owner:owner:1.0.12",
+            "org.assertj:assertj-core:3.19.0",
+            "org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testRuntimeOnly(
             "org.slf4j:slf4j-simple:1.7.29",
+            "org.junit.jupiter:junit-jupiter-engine:$junitVersion",
             "org.junit.jupiter:junit-jupiter:$junitVersion")
 }
+
+
 
 //compileJava.options.encoding = 'UTF-8'
 

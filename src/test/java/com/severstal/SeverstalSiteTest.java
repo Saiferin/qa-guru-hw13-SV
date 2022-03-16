@@ -3,13 +3,11 @@ package com.severstal;
 import com.severstal.helpers.DriverConfig;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
+
 
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
+
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
@@ -73,50 +71,4 @@ public class SeverstalSiteTest extends DriverConfig {
         });
     }
 
-    @ValueSource(strings = {
-            "Металлопрокат c покрытием",
-            "Облигации"
-    })
-
-    @ParameterizedTest(name = "Проверить поиск по ключевым словам - {0}")
-    void testSearch(String value) {
-        step("Открыть страницу:", () -> {
-            open("https://www.severstal.com");
-        });
-
-        step("Ввести искомое значение:", () -> {
-            $("[name='search']").setValue(value).pressEnter();
-        });
-
-        step("Проверить кол-во совпадений:", () -> {
-            $(".list .value").shouldNotBe(text("0"));
-        });
-    }
-
-
-    @CsvSource({
-            "Олкон, Оленегорский ГОК",
-            "Яковлевский, ГОК АО Яковлевский ГОК - официальный сайт Яковлевского рудника",
-            "Воркутауголь, Воркутауголь – крупнейшее угледобывающее предприятие России"
-    })
-
-    @ParameterizedTest(name = "Перейти на соответсвующую страницу - {0} \\ {1}")
-    void testAllLink(String link, String title) {
-        step("Открыть страницу:", () -> {
-            open("https://www.severstal.com");
-        });
-
-        step("Нажать по кнопке 'Все сайты':", () -> {
-            $(byText("Все сайты")).click();
-        });
-
-        step("Нажать на соответствующую ссылку:", () -> {
-            $(byText(link)).click();
-        });
-
-        step("Проверить кол-во совпаденмй:", () -> {
-            switchTo().window(1);
-            $("title").shouldHave(attribute("text", title));
-        });
-    }
 }
