@@ -17,7 +17,7 @@ public class DriverConfig {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = "1240x1024";
         Configuration.browser = System.getProperty("browser");
         Configuration.remote = cfg.hostname();
 
