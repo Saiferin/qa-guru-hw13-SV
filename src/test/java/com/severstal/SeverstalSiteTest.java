@@ -1,6 +1,8 @@
 package com.severstal;
 
 import com.severstal.helpers.DriverConfig;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,12 +15,16 @@ import static io.qameta.allure.Allure.step;
 
 public class SeverstalSiteTest extends DriverConfig {
 
-    @Test
-    @DisplayName("Проверка заголовка страницы")
-    void testTitle() {
+    @BeforeEach
+    void openURL(){
         step("Открыть страницу:", () -> {
             open("https://www.severstal.com");
         });
+    }
+
+    @Test
+    @DisplayName("Проверка заголовка страницы")
+    void testTitle() {
 
         step("Проверить title открытой страницы:", () -> {
             $("title").shouldHave(attribute("text", "Северсталь"));
@@ -28,9 +34,6 @@ public class SeverstalSiteTest extends DriverConfig {
     @Test
     @DisplayName("Проверить страницу 'О компании'")
     void testAbout() {
-        step("Открыть страницу:", () -> {
-            open("https://www.severstal.com");
-        });
 
         step("Перейти на страницу:", () -> {
             $("[href='/rus/about/']").click();
@@ -49,9 +52,6 @@ public class SeverstalSiteTest extends DriverConfig {
     @Test
     @DisplayName("Проверить страницу 'Контакты'")
     void testContacts() {
-        step("Открыть страницу:", () -> {
-            open("https://www.severstal.com");
-        });
 
         step("Перейти на страницу:", () -> {
             $("[href='/rus/global_contacts/']").click();
